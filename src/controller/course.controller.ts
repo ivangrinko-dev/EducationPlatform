@@ -1,5 +1,5 @@
 import express from "express"
-import { getAllCourse, createCourse, updateCourseById } from "../service/course.service";
+import { getAllCourse, createCourse, updateCourseById, deleteCourseById } from "../service/course.service";
 const route = express.Router()
 
 route.get(`/`, async(req, res) : Promise <void>=>{
@@ -20,10 +20,10 @@ route.put(`/:id`, async (req, res)=>{
     res.send(data)
 }) 
 
-// route.delete(`/:id`, async (req, res): Promise <void>=>{
-//     const {id} = req.params
-//     const data = await deleteUserById(id)
-//     res.send(data)
-// })
+route.delete(`/:id`, async (req, res): Promise <void>=>{
+    const {id} = req.params
+    const data = await deleteCourseById(id)
+    res.send(data)
+})
 
 export default route

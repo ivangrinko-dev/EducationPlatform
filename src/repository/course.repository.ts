@@ -17,15 +17,15 @@ async function createCourseDb(id, course) {
 
 async function updateCourseByIdDb(id, course) {
     const client = await pool.connect()
-    const sql = 'update courses set course = $1,  where id = $2 returning *'
+    const sql = 'update courses set course = $1  where id = $2 returning *'
     const result = (await client.query(sql, [course, id])).rows
     return result
 }
 
-// async function deleteUserByIdDb(id: string): Promise<iUser[]> {
-//     const client = await pool.connect()
-//     const sql = 'delete from users where id = $1 returning *'
-//     const result = (await client.query(sql, [id])).rows
-//     return result
-// }
-export { getAllCourseDb, createCourseDb, updateCourseByIdDb}
+async function deleteCourseByIdDb(id: string) {
+    const client = await pool.connect()
+    const sql = 'delete from courses where id = $1 returning *'
+    const result = (await client.query(sql, [id])).rows
+    return result
+}
+export { getAllCourseDb, createCourseDb, updateCourseByIdDb, deleteCourseByIdDb}
