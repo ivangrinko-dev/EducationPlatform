@@ -1,4 +1,4 @@
-import{getAllCourseDb, createCourseDb, updateCourseByIdDb} from '../repository/course.repository'
+import{getAllCourseDb, createCourseDb, updateCourseByIdDb, deleteCourseByIdDb} from '../repository/course.repository'
 
 
 async function getAllCourse(){
@@ -21,15 +21,10 @@ async function updateCourseById(id, course){
 
 
 
-// async function updateUserById(id: string, name: string, surname: string, email: string, pwd: string): Promise <iUser[]>{
-//     const data = await updateUserByIdDb(id, name, surname, email, pwd)
-//     return data
-// }
-
-// async function deleteUserById(id: string): Promise <iUser[]>{
-//     const data = await deleteUserByIdDb(id)
-//     return data
-// }
+async function deleteCourseById(id){
+    const data = await deleteCourseByIdDb(id)
+    return data
+}
 
 
-export {getAllCourse, createCourse, updateCourseById};
+export {getAllCourse, createCourse, updateCourseById, deleteCourseById};
