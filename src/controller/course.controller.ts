@@ -13,7 +13,7 @@ route.post(`/`, async (req, res): Promise <void>=>{
     res.send(data)
 })
 
-route.put(`/:id`, async (req, res)=>{
+route.put(`/:id`, async (req, res): Promise <void>=>{
     const {id} = req.params
     const {course} = req.body;
     const data = await updateCourseById(id, course)
