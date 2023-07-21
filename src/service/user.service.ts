@@ -8,7 +8,7 @@ async function getAllUser(): Promise<iUser[]> {
 
 async function getAllUserById(id: string): Promise<iUser[]> {
     const data = await getAllUserByIdDb(id)
-    if (data.length == 0) throw new Error('not id')
+    if (data.length == 0) throw new Error('такого id нет')
     return data
 
 }
@@ -16,6 +16,7 @@ async function getAllUserById(id: string): Promise<iUser[]> {
 
 async function createUser(name: string, surname: string, email: string, pwd: string): Promise<iUser[]> {
     const data = await createUserDb(name, surname, email, pwd)
+    if (data.length == 0) throw new Error('данные не сохранены')
     return data
 }
 
@@ -27,6 +28,7 @@ async function updateUserById(id: string, name: string, surname: string, email: 
 
 async function deleteUserById(id: string): Promise<iUser[]> {
     const data = await deleteUserByIdDb(id)
+    if (data.length == 0) throw new Error('такого id нет')
     return data
 }
 
