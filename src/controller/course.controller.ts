@@ -15,8 +15,8 @@ route.get(`/`, async(req, res) : Promise <void>=>{
 
 route.post(`/`, async (req, res): Promise <void>=>{
     try {
-        const {id, course} = req.body;
-        const data = await createCourse(id, course)
+        const {course} = req.body;
+        const data = await createCourse(course)
         bildResponse(res, 200, data)
     } catch (error: any) {
         bildResponse(res, 404, error.message)
