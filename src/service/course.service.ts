@@ -9,9 +9,9 @@ async function getAllCourse(): Promise<iCourse[]>{
     return data
 }
 
-async function createCourse(id: string, course: string): Promise<iCourse[]>{
-    const data = await createCourseDb(id, course)
-    if (data.length == 0) throw new Error('такого id нет')
+async function createCourse(course: string): Promise<iCourse[]>{
+    const data = await createCourseDb(course)
+    if (data.length == 0) throw new Error('данные не сохранены')
     return data
 }
 
