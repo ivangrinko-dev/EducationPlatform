@@ -1,6 +1,7 @@
 import { createUserDb, getUserByEmailDb } from '../repository/api.repository'
 import { iUser } from '../interfaces/index'
 import bcrypt from 'bcrypt'
+
 async function createUser(name: string, surname: string, email: string, pwd: string): Promise<iUser[]> {
     const foundUser = await getUserByEmailDb(email)
     if (foundUser.length > 0) {
@@ -11,7 +12,7 @@ async function createUser(name: string, surname: string, email: string, pwd: str
     return data
 }
 
-async function authorizationUse(email: string, pwd: string): Promise<iUser[]> {
+async function authorizationUser(email: string, pwd: string): Promise<iUser[]> {
     const foundUser = await getUserByEmailDb(email)
     if (!foundUser.length) throw new Error('Такого пользователя нет')
     const bool = await bcrypt.compare(pwd, foundUser[0].pwd)
@@ -20,4 +21,4 @@ async function authorizationUse(email: string, pwd: string): Promise<iUser[]> {
 }
 
 
-export { createUser, authorizationUse }
+export { createUser, authorizationUser }

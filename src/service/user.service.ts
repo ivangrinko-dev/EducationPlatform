@@ -1,4 +1,4 @@
-import { createUserDb, getAllUserDb, getAllUserByIdDb, updateUserByIdDb, deleteUserByIdDb } from '../repository/user.repository'
+import { createUserDb, getAllUserDb, getUserByIdDb, updateUserByIdDb, deleteUserByIdDb } from '../repository/user.repository'
 import { iUser } from '../interfaces/index'
 async function getAllUser(): Promise<iUser[]> {
     const data = await getAllUserDb()
@@ -6,8 +6,8 @@ async function getAllUser(): Promise<iUser[]> {
     return data
 }
 
-async function getAllUserById(id: string): Promise<iUser[]> {
-    const data = await getAllUserByIdDb(id)
+async function getUserById(id: string): Promise<iUser[]> {
+    const data = await getUserByIdDb(id)
     if (data.length == 0) throw new Error('такого id нет')
     return data
 
@@ -32,4 +32,4 @@ async function deleteUserById(id: string): Promise<iUser[]> {
     return data
 }
 
-export { createUser, getAllUser, getAllUserById, updateUserById, deleteUserById };
+export { createUser, getAllUser, getUserById, updateUserById, deleteUserById };

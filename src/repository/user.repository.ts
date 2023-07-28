@@ -1,7 +1,7 @@
 import { pool } from '../db'
 import { iUser } from '../interfaces/index'
 
-async function getAllUserByIdDb(id: string): Promise<iUser[]> {
+async function getUserByIdDb(id: string): Promise<iUser[]> {
     const client = await pool.connect()
     const sql = 'select * from users where id = $1'
     const result = (await client.query(sql, [id])).rows
@@ -56,4 +56,4 @@ async function deleteUserByIdDb(id: string): Promise<iUser[]> {
         return []
     }
 }
-export { createUserDb, getAllUserDb, getAllUserByIdDb, updateUserByIdDb, deleteUserByIdDb }
+export { createUserDb, getAllUserDb, getUserByIdDb, updateUserByIdDb, deleteUserByIdDb }

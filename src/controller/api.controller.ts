@@ -1,6 +1,6 @@
 
 import express from 'express'
-import { createUser, authorizationUse } from '../service/api.service'
+import { createUser, authorizationUser } from '../service/api.service'
 import bildResponse from '../helper/bildresponse'
 const route = express.Router()
 
@@ -18,7 +18,7 @@ route.post(`/reg`, async (req, res): Promise <void> => {
 route.post(`/auth`, async (req, res): Promise <void> => {
     try {
         const { email, pwd } = req.body
-        const data = await authorizationUse(email, pwd)
+        const data = await authorizationUser(email, pwd)
         bildResponse(res, 200, data)
     } catch (error: any){
         bildResponse(res, 404, error.message)
