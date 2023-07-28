@@ -1,11 +1,22 @@
 import express from "express"
 import bildResponse from '../helper/bildresponse'
-import { getAllCourse, createCourse, updateCourseById, deleteCourseById } from "../service/course.service";
+import { getAllCourse, createCourse, updateCourseById, deleteCourseById, getCourseById } from "../service/course.service";
 const route = express.Router()
 
 route.get(`/`, async(req, res) : Promise <void>=>{
     try {
         const data = await getAllCourse()
+        bildResponse(res, 200, data)
+    } catch (error: any) {
+        bildResponse(res, 404, error.message)
+    }
+   
+}) 
+
+route.get(`/:id`, async(req, res) : Promise <void>=>{
+    try {
+        const {id} = req.params
+        const data = await getCourseById(id)
         bildResponse(res, 200, data)
     } catch (error: any) {
         bildResponse(res, 404, error.message)

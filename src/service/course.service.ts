@@ -1,4 +1,4 @@
-import{getAllCourseDb, createCourseDb, updateCourseByIdDb, deleteCourseByIdDb} from '../repository/course.repository'
+import{getAllCourseDb, createCourseDb, updateCourseByIdDb, deleteCourseByIdDb, getCourseByIdDb} from '../repository/course.repository'
 import { iCourse } from '../interfaces/index'
 
 
@@ -7,6 +7,13 @@ async function getAllCourse(): Promise<iCourse[]>{
     if (data.length == 0) throw new Error('данные не сохранены')
   
     return data
+}
+
+async function getCourseById(id: string): Promise<iCourse[]>{
+    const data = await getCourseByIdDb(id)
+    if (data.length == 0) throw new Error('такого id нет')
+        return data
+    
 }
 
 async function createCourse(course: string): Promise<iCourse[]>{
@@ -32,4 +39,4 @@ async function deleteCourseById(id: string): Promise<iCourse[]>{
 }
 
 
-export {getAllCourse, createCourse, updateCourseById, deleteCourseById};
+export {getAllCourse, createCourse, updateCourseById, deleteCourseById, getCourseById};

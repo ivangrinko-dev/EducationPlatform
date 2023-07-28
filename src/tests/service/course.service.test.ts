@@ -1,4 +1,4 @@
-import { getAllCourse, createCourse, updateCourseById, deleteCourseById } from '../../service/course.service'
+import { getAllCourse, getCourseById, createCourse, updateCourseById, deleteCourseById } from '../../service/course.service'
 import * as repository from '../../repository/course.repository'
 describe('getAllCourse:', () => {
     test('test1', async () => {
@@ -20,6 +20,24 @@ describe('getAllCourse:', () => {
     })
 })
 
+describe('getCourseById:', () => {
+    test('test1', async () => {
+        const repoFunction = jest.spyOn(repository, 'getCourseByIdDb')
+        repoFunction.mockResolvedValue([
+            { id: '1', course: 'PHP' }
+        ])
+        const result = await getCourseById('1')
+        expect(repoFunction).toHaveBeenCalled()
+        expect(result[0].id).toBe('1')
+        expect(result[0].course).toBe('PHP')
+        expect(result.length).toBe(1)
+        expect(result).toEqual([
+            { id: '1', course: 'PHP' }
+        ])
+        expect(result).toHaveLength(1)
+    })
+})
+
 describe('createCourse:', () => {
     test('test1', async () => {
         const repoFunction = jest.spyOn(repository, 'createCourseDb')
@@ -27,7 +45,6 @@ describe('createCourse:', () => {
             { id: '1', course: 'PHP' }
         ])
         const result = await createCourse('PHP')
-
         expect(repoFunction).toHaveBeenCalled()
         expect(result[0].course).toBe('PHP')
         expect(result.length).toBe(1)
