@@ -18,6 +18,16 @@ describe('getAllCourse:', () => {
         ])
         expect(result).toHaveLength(2)
     })
+    test('test2', async () => {
+        const repoFunction = jest.spyOn(repository, 'getAllCourseDb')
+        repoFunction.mockResolvedValue([])
+        try {
+            await getAllCourse()
+        } catch (error: any) {
+            expect(repoFunction).toHaveBeenCalled()
+            expect(error.message).toBe('данные не сохранены')
+        }
+    })
 })
 
 describe('getCourseById:', () => {
@@ -36,6 +46,16 @@ describe('getCourseById:', () => {
         ])
         expect(result).toHaveLength(1)
     })
+    test('test2', async () => {
+        const repoFunction = jest.spyOn(repository, 'getCourseByIdDb')
+        repoFunction.mockResolvedValue([])
+        try {
+            await getCourseById(`123`)
+        } catch (error: any) {
+            expect(repoFunction).toHaveBeenCalled()
+            expect(error.message).toBe('такого id нет')
+        }
+    })
 })
 
 describe('createCourse:', () => {
@@ -53,9 +73,20 @@ describe('createCourse:', () => {
         ])
         expect(result).toHaveLength(1)
     })
-})
 
-describe ('updateCourseById:', () => {
+    test('test2', async () => {
+        const repoFunction = jest.spyOn(repository, 'createCourseDb')
+        repoFunction.mockResolvedValue([])
+        try {
+            await createCourse('PHPghsfjfj')
+        } catch (error: any) {
+            expect(repoFunction).toHaveBeenCalled()
+            expect(error.message).toBe('данные не сохранены')
+
+        }
+    })
+})
+describe('updateCourseById:', () => {
     test('test1', async () => {
         const repoFunction = jest.spyOn(repository, 'updateCourseByIdDb')
         repoFunction.mockResolvedValue([
@@ -71,9 +102,21 @@ describe ('updateCourseById:', () => {
             { id: '1', course: 'PHP' }
         ])
     })
+
+    test('test2', async () => {
+        const repoFunction = jest.spyOn(repository, 'updateCourseByIdDb')
+        repoFunction.mockResolvedValue([])
+        try {
+            await updateCourseById('13423', 'PHP23gsd')
+        } catch (error: any) {
+            expect(repoFunction).toHaveBeenCalled()
+            expect(error.message).toBe('такого id нет')
+        }
+    })
+
 })
 
-describe ('deleteCourseById:', () => {
+describe('deleteCourseById:', () => {
     test('test1', async () => {
         const repoFunction = jest.spyOn(repository, 'deleteCourseByIdDb')
         repoFunction.mockResolvedValue([
@@ -88,5 +131,19 @@ describe ('deleteCourseById:', () => {
         ])
         expect(result[0].course).toBe('PHP')
         expect(result).toHaveLength(1)
+    })
+
+    test('test2', async () => {
+        const repoFunction = jest.spyOn(repository, 'deleteCourseByIdDb')
+        repoFunction.mockResolvedValue([
+
+        ])
+        try {
+            await deleteCourseById('1fhmghh,gj,')
+
+        } catch (error: any) {
+            expect(repoFunction).toHaveBeenCalled()
+            expect(error.message).toBe('такого id нет')
+        }
     })
 })

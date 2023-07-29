@@ -51,10 +51,22 @@ describe('getAllUser:', () => {
         ])
         expect(result).toHaveLength(2)
     })
+
+    test('test2', async () => {
+        const repoFunction = jest.spyOn(repository, 'getAllUserDb')
+        repoFunction.mockResolvedValue([])
+        try {
+            await getAllUser()
+
+        } catch (error: any) {
+            expect(repoFunction).toHaveBeenCalled()
+            expect(error.message).toBe('бд не заполнена')
+        }
+    })
 })
 
 describe('getUserById:', () => {
-    test('test2', async () => {
+    test('test1', async () => {
         const repoFunction = jest.spyOn(repository, 'getUserByIdDb')
         repoFunction.mockResolvedValue([
             {
@@ -84,6 +96,18 @@ describe('getUserById:', () => {
 
         ])
         expect(result).toHaveLength(1)
+    })
+
+    test('test2', async () => {
+        const repoFunction = jest.spyOn(repository, 'getUserByIdDb')
+        repoFunction.mockResolvedValue([])
+        try {
+            await getUserById('129306')
+
+        } catch (error: any) {
+            expect(repoFunction).toHaveBeenCalled()
+            expect(error.message).toBe('такого id нет')
+        }
     })
 })
 
@@ -118,9 +142,22 @@ describe('createUser:', () => {
         ])
         expect(result).toHaveLength(1)
     })
+
+    test('test2', async () => {
+        const repoFunction = jest.spyOn(repository, 'createUserDb')
+        repoFunction.mockResolvedValue([])
+        try {
+            await createUser("sasha1", "surname1", "ssaugdfdfbst3@mail.ru", "35dfdr1")
+
+        } catch (error: any) {
+            expect(repoFunction).toHaveBeenCalled()
+            expect(error.message).toBe('данные не сохранены')
+
+        }
+    })
 })
 
-describe ('updateUserById:', () => {
+describe('updateUserById:', () => {
     test('test1', async () => {
         const repoFunction = jest.spyOn(repository, 'updateUserByIdDb')
         repoFunction.mockResolvedValue([
@@ -151,9 +188,21 @@ describe ('updateUserById:', () => {
             }
         ])
     })
+
+    test('test2', async () => {
+        const repoFunction = jest.spyOn(repository, 'updateUserByIdDb')
+        repoFunction.mockResolvedValue([])
+        try {
+            await updateUserById('45645456', "jsrjsrj", "jdtyjtyjtyjme1", "ssaugdfdfbst3@mail.ru", "35dfdr1")
+
+        } catch (error: any) {
+            expect(repoFunction).toHaveBeenCalled()
+            expect(error.message).toBe('такого id нет')
+        }
+    })
 })
 
-describe ('deleteUserById:', () => {
+describe('deleteUserById:', () => {
     test('test1', async () => {
         const repoFunction = jest.spyOn(repository, 'deleteUserByIdDb')
         repoFunction.mockResolvedValue([
@@ -183,6 +232,18 @@ describe ('deleteUserById:', () => {
                 "pwd": "35dfdr1"
             }
         ])
+    })
+
+    test('test1', async () => {
+        const repoFunction = jest.spyOn(repository, 'deleteUserByIdDb')
+        repoFunction.mockResolvedValue([])
+        try {
+            await deleteUserById('33567486778569')
+        } catch (error: any) {
+            expect(repoFunction).toHaveBeenCalled()
+            expect(error.message).toBe('такого id нет')
+        }
+
     })
 })
 
