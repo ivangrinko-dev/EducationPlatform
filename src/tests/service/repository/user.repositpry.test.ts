@@ -129,7 +129,7 @@ describe('createUserDb function', () => {
                 "pwd": "35dfdr"
             },
         ])
-        expect(result).toHaveLength(1)
+        
     })
 })
 

@@ -68,32 +68,32 @@ describe('authorizationUser:', () => {
         }])
     })
     test('test2', async () => {
-const mockGetUserByEmailDb = jest.spyOn(repository, 'getUserByEmailDb')
-mockGetUserByEmailDb.mockResolvedValue([])
-try {
-    await authorizationUser("ivan@mail.ru", "35dfdr1sghshsrrth")  
-} catch (error: any) {
-    expect(mockGetUserByEmailDb).toHaveBeenCalled()
-    expect(error.message).toBe('Такого пользователя нет')
-}
+        const mockGetUserByEmailDb = jest.spyOn(repository, 'getUserByEmailDb')
+        mockGetUserByEmailDb.mockResolvedValue([])
+        try {
+            await authorizationUser("ivan@mail.ru", "35dfdr1sghshsrrth")
+        } catch (error: any) {
+            expect(mockGetUserByEmailDb).toHaveBeenCalled()
+            expect(error.message).toBe('Такого пользователя нет')
+        }
     })
 
     test('test3', async () => {
-const mockGetUserByEmailDb = jest.spyOn(repository, 'getUserByEmailDb')
-const hashMock = jest.spyOn(bcrypt, `compare`)
-mockGetUserByEmailDb.mockResolvedValue([{
-    id: '3',
-    name: "ivan",
-    surname: "ivan1",
-    email: "ivan@mail.ru",
-    pwd: "35dfdr1sghshsrrth"
-}])
-hashMock.mockResolvedValue(false)
-try {
-    await authorizationUser("ivan@mail.ru", "35dfdr1sghshsrrth")  
-} catch (error: any) {
-    expect(mockGetUserByEmailDb).toHaveBeenCalled()
-    expect(error.message).toBe('Пароли не совпадают')
-}
+        const mockGetUserByEmailDb = jest.spyOn(repository, 'getUserByEmailDb')
+        const hashMock = jest.spyOn(bcrypt, `compare`)
+        mockGetUserByEmailDb.mockResolvedValue([{
+            id: '3',
+            name: "ivan",
+            surname: "ivan1",
+            email: "ivan@mail.ru",
+            pwd: "35dfdr1sghshsrrth"
+        }])
+        hashMock.mockResolvedValue(false)
+        try {
+            await authorizationUser("ivan@mail.ru", "35dfdr1sghshsrrth")
+        } catch (error: any) {
+            expect(mockGetUserByEmailDb).toHaveBeenCalled()
+            expect(error.message).toBe('Пароли не совпадают')
+        }
     })
 })
