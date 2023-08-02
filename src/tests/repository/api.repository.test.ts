@@ -1,4 +1,4 @@
-import { createUserDb, getUserByEmailDb } from '../../../repository/api.repository'
+import { createUserDb, getUserByEmailDb } from '../../repository/api.repository'
 
 const client = { query: jest.fn() }
 

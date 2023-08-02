@@ -1,4 +1,4 @@
-import { getAllCourseDb, createCourseDb, updateCourseByIdDb, deleteCourseByIdDb, getCourseByIdDb } from '../../../repository/course.repository'
+import { getAllCourseDb, createCourseDb, updateCourseByIdDb, deleteCourseByIdDb, getCourseByIdDb } from '../../repository/course.repository'
 
 const client = { query: jest.fn() }
 
