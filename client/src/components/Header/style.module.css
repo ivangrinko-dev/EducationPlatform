@@ -1,4 +1,7 @@
 .wrapper {
+    margin: auto;
+    width: 1180px;
+    height: 44px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -15,14 +18,17 @@
 }
 
 .wrapper .btns .login {
-
+    width: 60px;
+    height: 17px;
     color: #000;
     font: 700 16 Montserrat;
 
 }
 
 .wrapper .btns .reg {
-
+   
+    width: 55px;
+    height: 14px;
     color: #FFF;
     font: 700 16 Montserrat;
     border-radius: 14px;

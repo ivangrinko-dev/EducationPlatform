@@ -4,18 +4,93 @@
 }
 
 .preview .previewInfo .previewAbout {
+    width: 221px;
+    height: 16px;
     color: var(--primaty-cyan-dark, #2B788B);
     font: 700 16px Montserrat;
-
 }
 
 .preview .previewInfo h1 {
+    width: 400px;
+    height: 200px;
     color: var(--primaty-black, #000);
     font: 400 56px Dela Gothic One;
 }
 
 .preview .previewInfo .textInfo {
     color: var(--primaty-grey-dark, #757575);
+    width: 370px;
+    height: 80px;
     font: 600 18px Montserrat;
+}
 
+.preview .previewInfo .previewBg {
+    width: 165px;
+    height: 44px;
+    display: flex;
+    padding: 14px 22px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    background: var(--primaty-cyan-light, #C3DCE3);
+}
+
+.preview .previewInfo .previewBg .previewIng {
+    width: 129px;
+    height: 16px;
+    color: #2B788B;
+    font: 600 18px Montserrat;
+}
+
+.preview .previewInfo .miniWrapper {
+    width: 163px;
+    height: 65px;
+
+}
+
+.preview .previewInfo .miniWrapper .imgWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 48px;
+
+}
+
+.preview .previewInfo .miniWrapper .imgWrapper .flash {
+    width: 24px;
+    height: 30px;
+    background-image: url(../Img/Frame\ 35271.svg);
+}
+
+.preview .previewInfo .miniWrapper .imgWrapper .number {
+    background-image: url(../Img/600+.svg);
+
+    width: 129px;
+    height: 32px;
+}
+
+.preview .previewInfo .miniWrapper .students {
+    
+    width: 71px;
+    height: 22px;
+    margin: auto;
+    color: #585858;
+    font: 600 16px Montserrat;
+}
+
+.wrapper {
+    margin: auto;
+    width: 1180px;
+    height: 701px;
+    display: flex;
+    justify-content: space-between;
+   
+}
+
+.wrapper .bigImg {
+    
+    width: 833px;
+    height: 530px;
+    margin-top: 40px;
+    background-image: url(../Img/Frame\ 24.svg);
 }
