@@ -2,47 +2,47 @@ import { createUser, authorizationUser } from '../../service/api.service'
 import bcrypt from 'bcrypt'
 import * as repository from '../../repository/api.repository'
 
-// describe('createUser:', () => {
-//     test('test1', async () => {
-//         const mockUserCreate = jest.spyOn(repository, 'createUserDb')
-//         const mockHash = jest.spyOn(bcrypt, `hash`)
-//         const mockUserByEmail = jest.spyOn(repository, `createUserDb`)
-//         mockUserByEmail.mockResolvedValue([]);
-//         mockHash.mockResolvedValue([`35dfdr1sghshsrrth`])
-//         mockUserCreate.mockResolvedValue([{
-//             id: '3',
-//             name: "ivan",
-//             surname: "ivan1",
-//             email: "ivan@mail.ru",
-//             pwd: "35dfdr1sghshsrrth"
-//         }])
-//         const result = await createUser("ivan", "ivan1", "ivan@mail.ru", "35dfdr1sghshsrrth")
-//         expect(mockUserByEmail).toHaveBeenCalled()
-//         expect(mockHash).toHaveBeenCalled()
-//         expect(mockUserCreate).toHaveBeenCalled()
-//         expect(result).toEqual([
-//             {
-//                 id: '3',
-//                 name: "ivan",
-//                 surname: "ivan1",
-//                 email: "ivan@mail.ru",
-//                 pwd: "35dfdr1sghshsrrth"
-//             }
-//         ])
+describe('createUser:', () => {
+    test('test1', async () => {
+        const mockUserCreate = jest.spyOn(repository, 'createUserDb')
+        const mockHash = jest.spyOn(bcrypt, `hash`)
+        const mockUserByEmail = jest.spyOn(repository, `createUserDb`)
+        mockUserByEmail.mockResolvedValue([]);
+        mockHash.mockResolvedValue([`35dfdr1sghshsrrth`])
+        mockUserCreate.mockResolvedValue([{
+            id: '3',
+            name: "ivan",
+            surname: "ivan1",
+            email: "ivan@mail.ru",
+            pwd: "35dfdr1sghshsrrth"
+        }])
+        const result = await createUser("ivan", "ivan1", "ivan@mail.ru", "35dfdr1sghshsrrth")
+        expect(mockUserByEmail).toHaveBeenCalled()
+        expect(mockHash).toHaveBeenCalled()
+        expect(mockUserCreate).toHaveBeenCalled()
+        expect(result).toEqual([
+            {
+                id: '3',
+                name: "ivan",
+                surname: "ivan1",
+                email: "ivan@mail.ru",
+                pwd: "35dfdr1sghshsrrth"
+            }
+        ])
 
-//     })
-//     test('test2', async () => {
-//         const mockUserByEmail = jest.spyOn(repository, 'getUserByEmailDb')
-//         mockUserByEmail.mockResolvedValue([]);
-//         try {
-//             await createUser("ivan", "ivan1", "ivan@mail.ru", "35dfdr1sghshsrrth")
+    })
+    test('test2', async () => {
+        const mockUserByEmail = jest.spyOn(repository, 'getUserByEmailDb')
+        mockUserByEmail.mockResolvedValue([]);
+        try {
+            await createUser("ivan", "ivan1", "ivan@mail.ru", "35dfdr1sghshsrrth")
 
-//         } catch (error: any) {
-//             expect(mockUserByEmail).toHaveBeenCalled
-//             expect(error.message).toBe('такой email уже есть')
-//         }
-//     })
-// })
+        } catch (error: any) {
+            expect(mockUserByEmail).toHaveBeenCalled
+            expect(error.message).toBe('такой email уже есть')
+        }
+    })
+})
 
 describe('authorizationUser:', () => {
     test('test1', async () => {
