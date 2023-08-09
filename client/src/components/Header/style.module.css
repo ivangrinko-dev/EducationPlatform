@@ -27,11 +27,11 @@
 
 .wrapper .btns .reg {
    
-    width: 55px;
-    height: 14px;
+    width: 106px;
+    text-align: center;
     color: #FFF;
     font: 700 16 Montserrat;
     border-radius: 14px;
     background: #2B788B;
-    padding: 13px 21px;
+    padding: 13px 0px;
 }
