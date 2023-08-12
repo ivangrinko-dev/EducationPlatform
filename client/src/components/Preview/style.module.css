@@ -1,6 +1,13 @@
+.bcg {
+    background-color: #fff;
+}
+
+
 .preview {
     display: flex;
     justify-content: space-between;
+    width: 1220px;
+    margin: 6% auto;
 }
 
 .preview .previewInfo .previewAbout {
@@ -10,13 +17,17 @@
     font: 700 16px Montserrat;
 }
 
+.preview .previewAbout {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .preview .previewInfo h1 {
     width: 400px;
-    height: 200px;
     color: var(--primaty-black, #000);
     font: 400 56px Dela Gothic One;
 }
-
 .preview .previewInfo .textInfo {
     color: var(--primaty-grey-dark, #757575);
     width: 370px;
@@ -79,6 +90,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 1220px;
+    margin: auto;
+    padding: 6% 0;
 }
 
 .learn .img {
@@ -88,6 +102,12 @@
 }
 
 
+.learn .info  {
+    display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 500px;
+}
 .learn .info h1 {
     color: var(--primaty-black, #000);
     font: 400 48px Dela Gothic One;
@@ -123,6 +143,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 1220px;
+    margin: 6% auto;
 }
 
 .knowledge .img {
@@ -131,16 +153,22 @@
     background-image: url(./assets/image\ 2.svg);
 }
 
+.knowledge .info  {
+    display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .knowledge .info h1 {
     width: 475px;
     color: var(--primaty-black, #000);
-    font-family: 400 48px Dela Gothic One;
+    font: 400 48px Dela Gothic One;
 }
 
 .knowledge .info p {
     width: 480px;
     color: var(--primaty-grey-dark, #757575);
-    font-family: 600 18px Montserrat;
+    font: 600 18px Montserrat;
 }
 
 .knowledge .info .btnKnow {
@@ -155,8 +183,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 1220px;
+    margin: auto;
+    padding: 6% 0;
 }
 
+
+.progress .info  {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 
 .progress .info h1 {
     color: var(--primaty-black, #000);

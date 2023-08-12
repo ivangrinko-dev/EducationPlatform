@@ -22,14 +22,16 @@ function Preview() {
         <div className={style.bigImg}></div>
       </div>
 
-      <div className={style.learn}>
-        <div className={style.img}></div>
-        <div className={style.info}>
-          <h1>Learn a language in a playful way</h1>
-          <p>Make learning programming languages more fun with mini-games</p>
-          <div className={style.icons}>
-            <div className={style.icon1}></div>
-            <div className={style.icon2}></div>
+      <div className={style.bcg}>
+        <div className={style.learn}>
+          <div className={style.img}></div>
+          <div className={style.info}>
+            <h1>Learn a language in a playful way</h1>
+            <p>Make learning programming languages more fun with mini-games</p>
+            <div className={style.icons}>
+              <div className={style.icon1}></div>
+              <div className={style.icon2}></div>
+            </div>
           </div>
         </div>
       </div>
@@ -43,16 +45,16 @@ function Preview() {
         <div className={style.img}></div>
       </div>
 
-      <div className={style.progress}>
-                <div className={style.img}></div>
-                <div className={style.info}>
-                    <h1>Watch your progress every day</h1>
-                    <p>Save statistics on your achievements and mistakes</p>
-                    <div className={style.btnKnow}>Statistics →</div>
-                </div>
-
-            </div>
-
+      <div className={style.bcg}>
+        <div className={style.progress}>
+          <div className={style.img}></div>
+          <div className={style.info}>
+            <h1>Watch your progress every day</h1>
+            <p>Save statistics on your achievements and mistakes</p>
+            <div className={style.btnKnow}>Statistics →</div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
