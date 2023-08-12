@@ -1,41 +1,44 @@
 .bigWrapper {
-    margin: auto;
-    width: 1920;
-    height: 560;
+    width: 1220px;
+    margin: 2% auto;
 }
 
 .bigWrapper .wrapper {
     display: flex;
     justify-content: space-between;
+  
 }
 
 .bigWrapper .wrapper .txt {
-    justify-content: space-between;
     display: flex;
-   ;
+    gap: 30px;
 }
-hr {
 
-    height: 1180px;
-stroke-width: 1.205px;
-stroke: var(--primaty-grey-medium, #E0E0E0);
-
-}
 .bigWrapper .wrapper .txt1 {
     display: flex;
-    justify-content: space-around;
+    gap: 30px;
 }
+
+hr {
+    stroke-width: 1.205px;
+    stroke: var(--primaty-grey-medium, #E0E0E0);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 
 .bigWrapper .wrapper p {
-    display: flex;
     color: var(--primaty-grey-dark, #757575);
     font: 600 14px Montserrat;
+   
 }
 
-.bigWrapper .miniWrapper  {
+.bigWrapper .miniWrapper {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 40px;
 }
+
 .bigWrapper .miniWrapper .img {
     display: flex;
     justify-content: space-between;
@@ -47,6 +50,7 @@ stroke: var(--primaty-grey-medium, #E0E0E0);
     background-size: contain;
     background-repeat: no-repeat;
     background-image: url(./assets/Frame\ 30.svg);
+    margin-right: 30px;
 }
 
 .bigWrapper .miniWrapper .img .img31 {
@@ -55,6 +59,7 @@ stroke: var(--primaty-grey-medium, #E0E0E0);
     background-size: contain;
     background-repeat: no-repeat;
     background-image: url(./assets/Frame\ 31.svg);
+    margin-right: 30px;
 }
 
 .bigWrapper .miniWrapper .img .img33 {
@@ -63,6 +68,7 @@ stroke: var(--primaty-grey-medium, #E0E0E0);
     background-size: contain;
     background-repeat: no-repeat;
     background-image: url(./assets/Frame\ 33.svg);
+    margin-right: 30px;
 }
 
 .bigWrapper .miniWrapper .end {
