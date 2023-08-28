@@ -1,22 +1,21 @@
+import Options from "../Options/Options";
 import style from "./style.module.css";
 
 function Footer() {
+  const array = ["Home", "Textbook", "Statistics", "Sprint"];
+  const array2 = ["alex", "Gabriel", "Marcus"];
+
   return (
     <div className={style.bigWrapper}>
       <div className={style.wrapper}>
         <div className={style.txt}>
-          <p>Home</p>
-          <p>Textbook</p>
-          <p>Statistics</p>
-          <p>Sprint</p>
+          <Options array={array} />
         </div>
         <div className={style.txt1}>
-          <p>Alex</p>
-          <p>Gabriel</p>
-          <p>Marcus</p>
+          <Options array={array2} />
         </div>
       </div>
-<hr/>
+      <hr />
       <div className={style.miniWrapper}>
         <div className={style.img}>
           <div className={style.img30}></div>
