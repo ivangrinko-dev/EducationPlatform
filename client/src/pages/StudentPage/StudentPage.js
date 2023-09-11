@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import style from "./style.module.css";
-import Pagination from "@mui/material/Pagination";
-import axios from "axios";
+import Pagination from '@mui/material/Pagination';
+import { useState } from "react";
 
 function StudentPage() {
   const array = [
@@ -79,22 +78,14 @@ function StudentPage() {
     </div>
   ));
 
-  const [posts, setPosts] = useState([]);
-  const [flag, setflag] = useState(false);
-  // const [query, setQuery] = useStete('react')
-  const [page, setPage] = useStete(1)
-  // const [pageQty, setPageQty] = useStete(0)
+  const [str, setStr] = useState(1)
+  const [post] = useState(2)
 
-  useEffect(() => {
-    setflag(true);
-    let a = 0;
-    let b = 2;
- 
-    setPosts(result.slice(a, b));
-    a = a + 2;
-    b = b + 2;
-    setflag(false);
-  }, [flag]);
+
+
+  const lastInd = str * post
+  const firstInd = lastInd - post
+  const result2 = result.slice(firstInd, lastInd)
 
   return (
     <div>
@@ -103,8 +94,8 @@ function StudentPage() {
         <div className={style.img}></div>
         <h1>Course</h1>
       </div>
-      <div className={style.main}>{posts}</div>
-      <Pagination count={page} className={style.pagination} />
+      <div className={style.main}> {result2}</div>
+      <Pagination count={array.length / post} str={str} onChange={(_, num) => setStr(num)} className={style.pagination} />
       <Footer />
     </div>
   );
